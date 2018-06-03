@@ -1,4 +1,4 @@
-//Problem link http://www.spoj.com/problems/HOTELS/
+//Problem link https://www.codechef.com/problems/GCDMAX1
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
