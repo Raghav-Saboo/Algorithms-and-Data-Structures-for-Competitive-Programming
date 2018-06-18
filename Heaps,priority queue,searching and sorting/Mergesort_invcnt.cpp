@@ -1,4 +1,4 @@
-//Problem link https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/practice-problems/algorithm/bfs/
+//Problem link https://www.hackerearth.com/practice/algorithms/sorting/merge-sort/practice-problems/algorithm/mergesort/
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
