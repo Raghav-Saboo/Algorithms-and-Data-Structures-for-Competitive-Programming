@@ -1,4 +1,4 @@
-//Problem Link http://www.spoj.com/problems/QTREE5/
+//Problem Link https://www.spoj.com/problems/COT2/
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
