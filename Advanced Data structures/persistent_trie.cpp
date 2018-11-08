@@ -25,18 +25,23 @@ using namespace std;
 struct trie
 {
     struct trie *c[2];
+    trie()
+    {
+        c[0]=c[1]=NULL;
+    }
 };
 struct trie *root[N];
 vector <ll> adj[N];
 map <ll,ll> rid;
 ll key[N];
+trie *null=new trie();
 trie *create()
 {
     trie *r=new trie();
-    r->c[0]=r->c[1]=NULL;
+    r->c[0]=r->c[1]=null;
     return r;
 }
-trie *insert(trie *prv,ll k,ll id)
+/*trie *insert(trie *prv,ll k,ll id)
 {
     if(id<0)
     {
@@ -48,11 +53,26 @@ trie *insert(trie *prv,ll k,ll id)
     node->c[r^1]=(prv!=NULL?prv->c[r^1]:NULL);
     node->c[r]=insert((prv!=NULL?prv->c[r]:NULL),k,id-1);
     return node;
+}*/
+trie *insert(trie *prv,ll k,ll id)
+{
+    trie *root=create();
+    trie *cur=root;
+    ll i;
+    fd(i,31,0)
+    {
+        ll r=(k>>i)&1;
+        cur->c[r^1]=prv->c[r^1];
+        cur->c[r]=create();
+        cur=cur->c[r];
+        prv=prv->c[r];
+    }
+    return root;
 }
 void add(ll u,ll v,ll k)
 {
     //cout<<u<<" "<<v<<" "<<k<<endl;
-    root[u]=insert((v==-1)?NULL:root[v],k,31);
+    root[u]=insert((v==-1)?null:root[v],k,31);
 }
 void dfs(ll u,ll par)
 {
@@ -69,13 +89,13 @@ ll query_max(trie *node,ll k)
     {
         ll r=(k>>i)&1;
         //cout<<i<<" "<<r<<endl;
-        if(node->c[r^1]!=NULL)
+        if(node->c[r^1]!=null)
         {
             ans+=(1<<i);
             node=node->c[r^1];
             //cout<<i<<" "<<r<<" "<<k<<" "<<ans<<endl;
         }
-        else if(node->c[r]!=NULL)
+        else if(node->c[r]!=null)
         {
             node=node->c[r];
         }
@@ -88,11 +108,11 @@ ll query_min(trie *node,ll k)
     fd(i,31,0)
     {
         ll r=(k>>i)&1;
-        if(node->c[r]!=NULL)
+        if(node->c[r]!=null)
         {
             node=node->c[r];
         }
-        else if(node->c[r^1]!=NULL)
+        else if(node->c[r^1]!=null)
         {
             //cout<<i<<" "<<k<<" "<<r<<endl;
             ans+=(1<<i);
@@ -103,6 +123,7 @@ ll query_min(trie *node,ll k)
 }
 int main()
 {
+    null->c[0]=null->c[1]=null;
     ll n,q,u,v,i,ty,k,r,rk;
     sl(n);sl(q);
     sl(r);
