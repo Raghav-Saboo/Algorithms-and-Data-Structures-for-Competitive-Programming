@@ -1,0 +1,79 @@
+{
+  "appDomain": "",
+  "templateName": "batillus/undelivered-messages_goto",
+  "langCode": "en-us",
+  "senderEmail": "missedmessagedigest@flock.com",
+  "emailReceivers": [
+    {
+      "receiverEmail": "raghavs+19dec001@flock.com",
+      "guid": "jkg5fgfbgllf35pl",
+      "templateData": {
+        "date": "4th January 2020",
+        "teamName": "Hades Testing",
+        "name": "Raghav19Dec001",
+        "tag": "missed-message-daily-digest",
+        "jids": [
+          {
+            "name": "Raghav S",
+            "messages": [
+              {
+                "body": "hey new",
+                "ts": "1578078058085",
+                "tsFormat": "07:00 PM"
+              },
+              {
+                "body": "hi",
+                "ts": "1578078059947",
+                "tsFormat": "07:00 PM"
+              },
+              {
+                "body": "how are u",
+                "ts": "1578078063321",
+                "tsFormat": "07:01 PM"
+              },
+              {
+                "body": "heello",
+                "ts": "1578078080903",
+                "tsFormat": "07:01 PM"
+              },
+              {
+                "body": "hiii",
+                "ts": "1578078095524",
+                "tsFormat": "07:01 PM"
+              },
+              {
+                "body": "hi",
+                "ts": "1578106605704",
+                "tsFormat": "02:56 AM"
+              }
+            ]
+          },
+          {
+            "messages": [
+              {
+                "sn": "Raghav S",
+                "body": "rachel ross monica",
+                "ts": "1578078348002",
+                "tsFormat": "07:05 PM"
+              },
+              {
+                "sn": "Raghav S",
+                "body": "have u seen friends?",
+                "ts": "1578078355958",
+                "tsFormat": "07:05 PM"
+              },
+              {
+                "sn": "Raghav S",
+                "body": "hey",
+                "ts": "1578106599343",
+                "tsFormat": "02:56 AM"
+              }
+            ],
+            "groupName": "Hades Testing Hub"
+          }
+        ]
+      }
+    }
+  ],
+  "isHtml": true
+}
