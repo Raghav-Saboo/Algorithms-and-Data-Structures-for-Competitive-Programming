@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 #define ll long long int
 #define mp make_pair
@@ -7,9 +8,9 @@ using namespace std;
 #define pll pair<ll,ll>
 #define fi first
 #define se second
-#define fu(i,a,n) for(i=a;i<=n;i++)
-#define fd(i,a,n) for(i=a;i>=n;i--)
-#define rep(i,n)  for(i=0;i<n;i++)
+#define fu(i, a, n) for(i=a;i<=n;i++)
+#define fd(i, a, n) for(i=a;i>=n;i--)
+#define rep(i, n)  for(i=0;i<n;i++)
 #define si(i)  scanf("%d",&i)
 #define ss(s)  scanf("%s",s)
 #define sl(i)  scanf("%lld",&i)
@@ -22,39 +23,34 @@ using namespace std;
 #define vl vector <ll>
 #define N 100005
 ll arr[N];
-ll top=-1;
-void push(ll x)
-{
-    arr[++top]=x;
+ll top = -1;
+
+void push(ll x) {
+    arr[++top] = x;
 }
-void pop()
-{
-    if(top==-1)
-    {
-        cout<<"No Food\n";
+
+void pop() {
+    if (top == -1) {
+        cout << "No Food\n";
         return;
     }
-    ll tmp=arr[top];
+    ll tmp = arr[top];
     top--;
-    cout<<tmp<<endl;
+    cout << tmp << endl;
 }
-int main()
-{
-    ll q,ty;
+
+int main() {
+    ll q, ty;
     sl(q);
-    while(q--)
-    {
+    while (q--) {
         sl(ty);
-        if(ty==1)
-        {
+        if (ty == 1) {
             pop();
-        }
-        else
-        {
+        } else {
             ll c;
             sl(c);
             push(c);
         }
     }
-    return 0;   
+    return 0;
 }

@@ -1,5 +1,6 @@
 //GFG Practice
 #include <bits/stdc++.h>
+
 using namespace std;
 #define ll long long int
 #define mp make_pair
@@ -8,9 +9,9 @@ using namespace std;
 #define pll pair<ll,ll>
 #define fi first
 #define se second
-#define fu(i,a,n) for(i=a;i<=n;i++)
-#define fd(i,a,n) for(i=a;i>=n;i--)
-#define rep(i,n)  for(i=0;i<n;i++)
+#define fu(i, a, n) for(i=a;i<=n;i++)
+#define fd(i, a, n) for(i=a;i>=n;i--)
+#define rep(i, n)  for(i=0;i<n;i++)
 #define si(i)  scanf("%d",&i)
 #define ss(s)  scanf("%s",s)
 #define sl(i)  scanf("%lld",&i)
@@ -23,42 +24,37 @@ using namespace std;
 #define vl vector <ll>
 #define N 105
 ll dp[105][105];
-void lcs(string a,string b)
-{
-    ll i,j,ans=0;
-    ll n=b.size();
-    ll m=a.size();
-    fu(i,1,m)
-    {
-        fu(j,1,n)
-        {
-            dp[i][j]=0;
+
+void lcs(string a, string b) {
+    ll i, j, ans = 0;
+    ll n = b.size();
+    ll m = a.size();
+    fu(i, 1, m) {
+        fu(j, 1, n) {
+            dp[i][j] = 0;
         }
     }
     ll l;
-    fu(i,1,m)
-    {
-        fu(j,1,n)
-        {
-            if(a[i-1]==b[j-1])
-            {
-                dp[i][j]=1+dp[i-1][j-1];
-                ans=max(ans,dp[i][j]);
+    fu(i, 1, m) {
+        fu(j, 1, n) {
+            if (a[i - 1] == b[j - 1]) {
+                dp[i][j] = 1 + dp[i - 1][j - 1];
+                ans = max(ans, dp[i][j]);
             }
         }
     }
-    pl(ans);pn();
+    pl(ans);
+    pn();
 }
-int main()
-{
-    string a,b;
-    ll t,m,n;
+
+int main() {
+    string a, b;
+    ll t, m, n;
     sl(t);
-    while(t--)
-    {
-        cin>>m>>n;
-        cin>>a>>b;
-        lcs(a,b);
+    while (t--) {
+        cin >> m >> n;
+        cin >> a >> b;
+        lcs(a, b);
     }
     return 0;
 }

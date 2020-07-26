@@ -1,5 +1,6 @@
 //Problem link http://www.spoj.com/problems/EC_P/
 #include <bits/stdc++.h>
+
 using namespace std;
 #define ll long long int
 #define mp make_pair
@@ -8,9 +9,9 @@ using namespace std;
 #define pll pair<ll,ll>
 #define fi first
 #define se second
-#define fu(i,a,n) for(i=a;i<=n;i++)
-#define fd(i,a,n) for(i=a;i>=n;i--)
-#define rep(i,n)  for(i=0;i<n;i++)
+#define fu(i, a, n) for(i=a;i<=n;i++)
+#define fd(i, a, n) for(i=a;i>=n;i--)
+#define rep(i, n)  for(i=0;i<n;i++)
 #define si(i)  scanf("%d",&i)
 #define ss(s)  scanf("%s",s)
 #define sl(i)  scanf("%lld",&i)
@@ -22,76 +23,62 @@ using namespace std;
 #define vi vector <int>
 #define vl vector <ll>
 #define N 100005
-vector <ll> adj[N];
+vector<ll> adj[N];
 ll fup[N];
 ll tin[N];
 ll par[N];
 ll vis[N];
-set <ll> ap;
+set<ll> ap;
 set <pll> bridge;
-void dfs(ll u,ll &ti,ll root)
-{
-    ti=ti+1;
-    tin[u]=ti;
-    vis[u]=1;
-    fup[u]=tin[u];
+
+void dfs(ll u, ll &ti, ll root) {
+    ti = ti + 1;
+    tin[u] = ti;
+    vis[u] = 1;
+    fup[u] = tin[u];
     ll i;
-    rep(i,adj[u].size())
-    {
-        if(!vis[adj[u][i]])
-        {
-            par[adj[u][i]]=u;
-            dfs(adj[u][i],ti,root);
-            fup[u]=min(fup[u],fup[adj[u][i]]);
-            if(fup[adj[u][i]]>=tin[u]&&u!=root)
-            {
+    rep(i, adj[u].size()) {
+        if (!vis[adj[u][i]]) {
+            par[adj[u][i]] = u;
+            dfs(adj[u][i], ti, root);
+            fup[u] = min(fup[u], fup[adj[u][i]]);
+            if (fup[adj[u][i]] >= tin[u] && u != root) {
                 //printf("***");ps();pl(u);ps();pl(fup[u]);pl(adj[u][i]);ps();pl(fup[adj[u][i]]);pn();
                 ap.insert(u);
             }
-            if(fup[adj[u][i]]>tin[u])
-            {
-                if(u<=adj[u][i])
-                {
-                    bridge.insert(mp(u,adj[u][i]));
-                }
-                else
-                {
-                    bridge.insert(mp(adj[u][i],u));
+            if (fup[adj[u][i]] > tin[u]) {
+                if (u <= adj[u][i]) {
+                    bridge.insert(mp(u, adj[u][i]));
+                } else {
+                    bridge.insert(mp(adj[u][i], u));
                 }
             }
-        }
-        else if(vis[adj[u][i]]==1&&adj[u][i]!=par[u])
-        {
-            fup[u]=min(fup[u],tin[adj[u][i]]);
+        } else if (vis[adj[u][i]] == 1 && adj[u][i] != par[u]) {
+            fup[u] = min(fup[u], tin[adj[u][i]]);
         }
     }
-    if(u==root&&adj[root].size()>1)
-    {
+    if (u == root && adj[root].size() > 1) {
         ap.insert(root);
     }
-    vis[u]=2;
+    vis[u] = 2;
 }
-int main()
-{
-    ll n,m,i,u,v,t,tn=1;
+
+int main() {
+    ll n, m, i, u, v, t, tn = 1;
     sl(t);
-    while(t--)
-    {
+    while (t--) {
         sl(n);
         sl(m);
-        fu(i,1,m)
-        {
+        fu(i, 1, m) {
             sl(u);
             sl(v);
             adj[u].pb(v);
             adj[v].pb(u);
         }
-        ll ti=0;
-        fu(i,1,n)
-        {
-            if(!vis[i])
-            {
-                dfs(i,ti,i);
+        ll ti = 0;
+        fu(i, 1, n) {
+            if (!vis[i]) {
+                dfs(i, ti, i);
             }
         }
         //pl(ap.size());
@@ -105,29 +92,27 @@ int main()
         }
         pn();*/
         //pl(bridge.size());
-        printf("Caso #%lld\n",tn);
+        printf("Caso #%lld\n", tn);
         tn++;
-        if(bridge.size()==0)
-        {
+        if (bridge.size() == 0) {
             printf("Sin bloqueos\n");
-        }
-        else
-        {
-            printf("%lu",bridge.size());
+        } else {
+            printf("%lu", bridge.size());
             pn();
-            set <pll> :: iterator it2;
-            for(it2=bridge.begin();it2!=bridge.end();it2++)
-            {
-                pl((*it2).first);ps();pl((*it2).second);
+            set < pll > ::iterator
+            it2;
+            for (it2 = bridge.begin(); it2 != bridge.end(); it2++) {
+                pl((*it2).first);
+                ps();
+                pl((*it2).second);
                 pn();
             }
         }
         ap.clear();
         bridge.clear();
-        fu(i,1,n)
-        {
+        fu(i, 1, n) {
             adj[i].clear();
-            vis[i]=0;
+            vis[i] = 0;
         }
     }
     return 0;

@@ -1,5 +1,6 @@
 //Problem link https://www.hackerearth.com/practice/
 #include <bits/stdc++.h>
+
 using namespace std;
 #define ll long long int
 #define mp make_pair
@@ -8,9 +9,9 @@ using namespace std;
 #define pll pair<ll,ll>
 #define fi first
 #define se second
-#define fu(i,a,n) for(i=a;i<=n;i++)
-#define fd(i,a,n) for(i=a;i>=n;i--)
-#define rep(i,n)  for(i=0;i<n;i++)
+#define fu(i, a, n) for(i=a;i<=n;i++)
+#define fd(i, a, n) for(i=a;i>=n;i--)
+#define rep(i, n)  for(i=0;i<n;i++)
 #define si(i)  scanf("%d",&i)
 #define ss(s)  scanf("%s",s)
 #define sl(i)  scanf("%lld",&i)
@@ -23,39 +24,32 @@ using namespace std;
 #define vl vector <ll>
 #define N 100005
 ll arr[N];
-int main()
-{
-    ll n,i,x,low,high,mid,ans,q;
+
+int main() {
+    ll n, i, x, low, high, mid, ans, q;
     sl(n);
-    fu(i,1,n)
-    {
+    fu(i, 1, n) {
         sl(arr[i]);
     }
-    sort(arr+1,arr+1+n);
+    sort(arr + 1, arr + 1 + n);
     sl(q);
-    while(q--)
-    {
+    while (q--) {
         sl(x);
-        low=1;
-        high=n;
-        while(low<=high)
-        {
-            mid=(low+high)/2;
-            if(arr[mid]==x)
-            {
-                ans=mid;
+        low = 1;
+        high = n;
+        while (low <= high) {
+            mid = (low + high) / 2;
+            if (arr[mid] == x) {
+                ans = mid;
                 break;
-            }
-            else if(arr[mid]<x)
-            {
-                low=mid+1;
-            }
-            else
-            {
-                high=mid-1;
+            } else if (arr[mid] < x) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
             }
         }
-        pl(ans);pn();
+        pl(ans);
+        pn();
     }
     return 0;
 }
