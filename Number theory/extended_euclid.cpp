@@ -1,4 +1,4 @@
-http :  // www.spoj.com/problems/DIVFACT/
+// Problem link http://www.spoj.com/problems/DIVFACT/
 #include <bits/stdc++.h>
 
 #define ll long long int
@@ -6,7 +6,7 @@ http :  // www.spoj.com/problems/DIVFACT/
 #define pb push_back
 #define pii pair<int, int>
 #define pll pair<ll, ll>
-#define fi first
+#define fi firstƒ
 #define se second
 #define fu(i, a, n) for (i = a; i <= n; i++)
 #define fd(i, a, n) for (i = a; i >= n; i--)
@@ -22,7 +22,7 @@ http :  // www.spoj.com/problems/DIVFACT/
 #define vi vector<int>
 #define vl vector<ll>
 #define N 1000005
-        using namespace std;
+using namespace std;
 
 ll extended_euclid(ll a, ll b, ll &x, ll &y) {
   if (a == 0) {
